@@ -22,6 +22,20 @@
     --surface-color-hover: rgba(0, 0, 0, 0.02);
     --highlight-color: rgba(0, 0, 0, 0.1);
     --switch-bg-url: url(./assets/sun.svg);
+
+    *::-webkit-scrollbar {
+        width: 12px;
+    }
+    
+    *::-webkit-scrollbar-track {
+        background-color: #c0c3cc;
+    }
+    
+    *::-webkit-scrollbar-thumb{
+        background-color: #918caec3;
+        border-radius: 10px;
+        border: 1px solid var(--surface-color);
+    }
 }
 
 body * {
@@ -175,6 +189,9 @@ footer{
 
 /* media queries */
 @media (min-width: 700px) {
+    body {
+        height: 120vh;
+    }
     :root {
         --bg-url: url(./assets/bg-desktop.jpg);
     }
