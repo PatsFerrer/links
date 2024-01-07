@@ -46,6 +46,7 @@ body{
     max-width: 588px;
     margin: 56px auto 0px;
     padding: 0 24px;
+    text-align: center;
 }
 
 /* profile */
@@ -139,6 +140,11 @@ ul li a {
 ul li a:hover{
     background: var(--surface-color-hover);
     border: 1px solid var(--text-color);
+}
+
+.icon {
+    font-size: 24px;
+    margin-right: 5px;
 }
 
 #social-links {
