@@ -39,6 +39,7 @@ body{
     /* background: color image  reapeat position/size */
     background: var(--bg-url) no-repeat top center/cover;
     height: 100vh;
+    overflow-y: hidden;
 }
 
 #container {
@@ -168,7 +169,6 @@ ul li a:hover{
 }
 
 footer{
-    padding: 24px 0;
     text-align: center;
     font-size: 14px;
 }
@@ -182,6 +182,12 @@ footer{
     .light {
         --bg-url: url(./assets/bg-desktop-light.jpg);
     }
+}
+
+@media (max-height: 728px) {    
+    body{     
+        overflow-y: auto;
+    }    
 }
 
 /* animation */
