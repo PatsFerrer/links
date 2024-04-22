@@ -1,4 +1,4 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -12,6 +12,8 @@
     --surface-color-hover: rgba(0, 0, 0, 0.02);
     --highlight-color: rgba(255, 255, 255, 0.2);
     --switch-bg-url: url(./assets/moon-stars.svg);
+    --switch-music-on-url: url(./assets/music-on.svg);
+    --switch-music-off-url: url(./assets/music-off.svg);
 }
 
 .light {
@@ -26,12 +28,12 @@
     *::-webkit-scrollbar {
         width: 12px;
     }
-    
+
     *::-webkit-scrollbar-track {
         background-color: #c0c3cc;
     }
-    
-    *::-webkit-scrollbar-thumb{
+
+    *::-webkit-scrollbar-thumb {
         background-color: #918caec3;
         border-radius: 10px;
         border: 1px solid var(--surface-color);
@@ -42,7 +44,8 @@ body * {
     font-family: 'Inter', sans-serif;
     color: var(--text-color);
 }
-body{
+
+body {
     /* 
     background-image: url("assets/bg-mobile.jpg");
     background-repeat: no-repeat;
@@ -64,7 +67,7 @@ body{
 }
 
 /* profile */
-#profile{
+#profile {
     text-align: center;
     padding: 24px;
 }
@@ -72,23 +75,33 @@ body{
 #profile img {
     width: 112px;
 }
+
 #profile p {
     font-weight: 500;
     line-height: 24px;
     margin-top: 8px;
 }
+
 /* switch - botão light/dark */
-#switch {
+#switch,
+#switchMusic {
     position: relative;
     width: 64px;
 
     margin: 4px auto;
 }
 
-#switch button{
+#switchMusic {
+    position: absolute;
+    right: 18px;
+    top: 18px
+
+}
+
+#switch button,
+#switchMusic button {
     width: 32px;
     height: 32px;
-    background: white var(--switch-bg-url) no-repeat center;
     border: 0;
     border-radius: 50%;
 
@@ -98,18 +111,40 @@ body{
     z-index: 1;
     transform: translateY(-50%);
 
+    /* animation: slide-back 0.2s; */
+}
+
+#switch button {
     animation: slide-back 0.2s;
 }
 
-.light #switch button{
-    animation: slide-in 0.2s forwards; // forwards mantém a propriedade final (do 'to') do keyframe slide-in, sem voltar pro inicio
+
+#switch button {
+    background: white var(--switch-bg-url) no-repeat center;
 }
 
-#switch button:hover {
+button {
+    background: white var(--switch-music-off-url) no-repeat center;
+    animation: slide-back 0.2s;
+}
+
+.light #switch button {
+    animation: slide-in 0.2s forwards;
+    /* forwards mantém a propriedade final (do 'to') do keyframe slide-in, sem voltar pro inicio*/
+}
+
+button.button-slide {
+    background: white var(--switch-music-on-url) no-repeat center;
+    animation: slide-in 0.2s forwards;
+}
+
+#switch button:hover,
+#switchMusic button:hover {
     outline: 8px solid var(--highlight-color);
 }
 
-#switch span {
+#switch span,
+#switchMusic span {
     display: block;
     width: 64px;
     height: 24px;
@@ -151,7 +186,7 @@ ul li a {
     transition: background 0.2s;
 }
 
-ul li a:hover{
+ul li a:hover {
     background: var(--surface-color-hover);
     border: 1px solid var(--text-color);
 }
@@ -178,11 +213,11 @@ ul li a:hover{
     border-radius: 50%;
 }
 
-#social-links a:hover{
+#social-links a:hover {
     background-color: var(--highlight-color);
 }
 
-footer{
+footer {
     text-align: center;
     font-size: 14px;
 }
@@ -192,6 +227,7 @@ footer{
     body {
         height: 120vh;
     }
+
     :root {
         --bg-url: url(./assets/bg-desktop.jpg);
     }
@@ -201,10 +237,10 @@ footer{
     }
 }
 
-@media (max-height: 728px) {    
-    body{     
+@media (max-height: 728px) {
+    body {
         overflow-y: auto;
-    }    
+    }
 }
 
 /* animation */
@@ -212,6 +248,7 @@ footer{
     from {
         left: 0;
     }
+
     to {
         left: 50%;
     }
@@ -221,6 +258,7 @@ footer{
     from {
         left: 50%;
     }
+
     to {
         left: 0;
     }
